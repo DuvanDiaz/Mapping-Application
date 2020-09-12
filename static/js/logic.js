@@ -4,7 +4,7 @@ var platesURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/
 
 // Initialize  Two Separate LayerGroups
 var earthquakes = new L.LayerGroup();
-var tectonicP = new L.LayerGroup();
+var tectonicPlates = new L.LayerGroup();
 
 // Define Variables for Tile Layers
 var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -38,7 +38,7 @@ var baseMaps = {
 // Create Overlay 
 var overlayMaps = {
     "Earthquakes": earthquakes,
-    "Fault Lines": tectonicP
+    "Fault Lines": tectonicPlates
 };
 
 // Create Map
@@ -107,8 +107,8 @@ d3.json(earthquakesURL, function(earthquakeData) {
         L.geoJson(plateData, {
             color: "#DC143C",
             weight: 2
-        }).addTo(tectonicP);
-        tectonicP.addTo(myMap);
+        }).addTo(tectonicPlates);
+        tectonicPlates.addTo(myMap);
     });
 
     // Set Up Legend
